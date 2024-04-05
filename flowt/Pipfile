@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+loguru = "*"
+omegaconf = "*"
+requests-html = "*"
+pandas = "*"
+tqdm = "*"
+fastapi = "*"
+uvicorn = "*"
+mangum = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

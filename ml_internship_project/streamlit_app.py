@@ -152,7 +152,7 @@ if pdf_files:
     # Convert chunks into embeddings and store them in Vector Database
     Vector_db: Chroma = Chroma.from_documents(collection_name="document_docs", 
                                               documents=chunks, 
-                                              embedding=OpenAIEmbeddings(model="text-embedding-3-large"), 
+                                              embedding=OpenAIEmbeddings(model="text-embedding-3-small"), 
                                               persist_directory=CHROMA_PATH)
     
     # Explicitly persist the data to the disk
@@ -204,7 +204,8 @@ if prompt := st.chat_input('Pass Your Prompt here'):
         model = ChatOpenAI(model="gpt-3.5-turbo-1106")
         
         # Passing prompt to model to get the answer
-        answer = model.invoke(prompt)
+        print(final_prompt)
+        answer = model.invoke(final_prompt)
 
         # Check if the generated answer contains inappropriate content
         if contains_inappropriate_content(answer.content):
